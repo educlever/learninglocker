@@ -2,11 +2,20 @@
 
 dir=$(dirname $0)
 
-composer require php-amqplib/php-amqplib
+exists=$(grep php-amqplib ${dir}/composer.json)
+if [ -z "$exists" ]
+then
+    composer require php-amqplib/php-amqplib
+fi
 
-# TODO ne pas faire si la ligne est déjà dans le fichier
-cat << EOF >> ${dir}/app/listeners.php
-require(__DIR__ . '/../educlever-listeners.php');
+composer install
+
+exists=$(grep educlever-listeners.php ${dir}/app/listeners.php)
+if [ $z "$exists" ]
+then
+    cat << EOF >> ${dir}/app/listeners.php
+require_once(__DIR__ . '/../educlever-listeners.php');
 EOF
+fi
 
-chmod a+rw -R ${dir}app/storage/
+chmod a+rw -R ${dir}/app/storage/

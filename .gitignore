@@ -9,5 +9,4 @@ Thumbs.db
 /app/config/ht2
 /app/config/production
 /app/config/staging
-/app/config/local/*.php
 .idea
