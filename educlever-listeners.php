@@ -44,7 +44,7 @@ function educlever_config(array &$qConfig, $key, $defaultValue = null)
     return $defaultValue;
 }
 
-Event::listen(
+\Event::listen(
     'Statements.store',
     function ($statements) use ($qConfig) {
         $encodedStatements = @json_encode($statements);
@@ -69,22 +69,27 @@ Event::listen(
             $keepalive = educlever_config($qConfig, 'keepalive', false);
             $heartbeat = educlever_config($qConfig, 'heartbeat', 0);
 
-            $connection = new AMQPStreamConnection(
-                $host,
-                $port,
-                $user,
-                $password,
-                $vhost,
-                $insist,
-                $login_method,
-                $login_response,
-                $locale,
-                $connection_timeout,
-                $read_write_timeout,
-                $context,
-                $keepalive,
-                $heartbeat
-            );
+            try {
+                $connection = new AMQPStreamConnection(
+                    $host,
+                    $port,
+                    $user,
+                    $password,
+                    $vhost,
+                    $insist,
+                    $login_method,
+                    $login_response,
+                    $locale,
+                    $connection_timeout,
+                    $read_write_timeout,
+                    $context,
+                    $keepalive,
+                    $heartbeat
+                );
+            } catch (\Exception $e) {
+                error_log($e);
+                return;
+            }
 
             $channel = $connection->channel();
 
@@ -99,27 +104,33 @@ Event::listen(
             $passive = educlever_config($qConfig, 'queue_passive', false);
             $durable = educlever_config($qConfig, 'queue_durable', true);
             $exclusive = educlever_config($qConfig, 'queue_exclusive', false);
+//            $auto_delete = educlever_config($qConfig, 'queue_auto_delete', true);
             $auto_delete = educlever_config($qConfig, 'queue_auto_delete', false);
             $nowait = educlever_config($qConfig, 'queue_nowait', false);
             $arguments = null;
             $ticket = null;
 
-            $channel->queue_declare(
-                $queue,
-                $passive,
-                $durable,
-                $exclusive,
-                $auto_delete,
-                $nowait,
-                $arguments,
-                $ticket
-            );
+            try {
+                $channel->queue_declare(
+                    $queue,
+                    $passive,
+                    $durable,
+                    $exclusive,
+                    $auto_delete,
+                    $nowait,
+                    $arguments,
+                    $ticket
+                );
+            } catch (\Exception $e) {
+                error_log($e);
+                return;
+            }
 
             // émission du message
 
             // cf. https://www.rabbitmq.com/amqp-0-9-1-reference.html
             $exchange = '';
-            $routing_key = '';
+            $routing_key = educlever_config($qConfig, 'queue_name');
             $mandatory = true;
             $immediate = false;
             $ticket = null;
@@ -133,6 +144,8 @@ Event::listen(
                 $ticket
             );
 
+            // FSI 2016-05-18 17:59:04 : J'ai peur que ça déconnecte les consumers
+            // TODO : à vérifier
             $channel->close();
 
             $connection->close();
