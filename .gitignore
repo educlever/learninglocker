@@ -10,3 +10,4 @@ Thumbs.db
 /app/config/production
 /app/config/staging
 /app/config/local/*.php
+.idea

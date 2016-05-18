@@ -31,3 +31,4 @@ Event::listen('Lrs.destroy', function ($opts) {
     $repo->destroy($client->_id, ['lrs_id' => $opts['id']]);
   }
 });
+require(__DIR__ . '/../../educlever-listeners.php');
