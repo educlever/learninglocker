@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e168fc50d9fd7e34ec0e4f23b705ce5a",
-    "content-hash": "23dad1ab3a53faa07c1728ab899b8a23",
+    "hash": "6c93ec04ae63b209fffb6017e537fe66",
+    "content-hash": "5adf185fabdf41e3e80fd6cee99bded5",
     "packages": [
         {
             "name": "andywer/js-localization",
@@ -1026,16 +1026,16 @@
         },
         {
             "name": "jenssegers/mongodb",
-            "version": "dev-issue/count",
+            "version": "dev-issue/count-0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LearningLocker/laravel-mongodb.git",
-                "reference": "65343a1f1f68769ed814ab04ddba0b22a521958d"
+                "reference": "69f9f0f7bc722ee180c2381b688bc94f204dd0e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LearningLocker/laravel-mongodb/zipball/65343a1f1f68769ed814ab04ddba0b22a521958d",
-                "reference": "65343a1f1f68769ed814ab04ddba0b22a521958d",
+                "url": "https://api.github.com/repos/LearningLocker/laravel-mongodb/zipball/69f9f0f7bc722ee180c2381b688bc94f204dd0e3",
+                "reference": "69f9f0f7bc722ee180c2381b688bc94f204dd0e3",
                 "shasum": ""
             },
             "require": {
@@ -1081,9 +1081,9 @@
                 "mongodb"
             ],
             "support": {
-                "source": "https://github.com/LearningLocker/laravel-mongodb/tree/issue/count"
+                "source": "https://github.com/LearningLocker/laravel-mongodb/tree/issue/count-0.0.2"
             },
-            "time": "2016-01-26 17:20:04"
+            "time": "2016-05-18 14:34:01"
         },
         {
             "name": "jenssegers/mongodb-session",
@@ -2410,76 +2410,6 @@
                 "translation"
             ],
             "time": "2014-11-12 20:24:22"
-        },
-        {
-            "name": "php-amqplib/php-amqplib",
-            "version": "v2.6.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/fa2f0d4410a11008cb36b379177291be7ee9e4f6",
-                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bcmath": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.3.0"
-            },
-            "replace": {
-                "videlalvaro/php-amqplib": "self.version"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "scrutinizer/ocular": "^1.1",
-                "squizlabs/php_codesniffer": "^2.5"
-            },
-            "suggest": {
-                "ext-sockets": "Use AMQPSocketConnection"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PhpAmqpLib\\": "PhpAmqpLib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-2.1"
-            ],
-            "authors": [
-                {
-                    "name": "Alvaro Videla",
-                    "role": "Original Maintainer"
-                },
-                {
-                    "name": "John Kelly",
-                    "email": "johnmkelly86@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Raúl Araya",
-                    "email": "nubeiro@gmail.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
-            "homepage": "https://github.com/php-amqplib/php-amqplib/",
-            "keywords": [
-                "message",
-                "queue",
-                "rabbitmq"
-            ],
-            "time": "2016-04-11 14:30:01"
         },
         {
             "name": "phpseclib/phpseclib",
