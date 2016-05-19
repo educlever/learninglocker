@@ -19,3 +19,11 @@ EOF
 fi
 
 chmod a+rw -R ${dir}/app/storage/
+
+view=app/views/layouts/loggedout.blade.php
+exists=$(grep "Logo Educlever" ${view})
+if [ -z "$exists" ]
+then
+    sed -i -E 's#(<div class="logo">)#\1<img src="http://demo.educlever.io/img.png" alt="Logo Educlever">#' ${view}
+fi
+
