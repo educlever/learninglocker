@@ -11,7 +11,7 @@ fi
 composer install
 
 exists=$(grep educlever-listeners.php ${dir}/app/listeners.php)
-if [ $z "$exists" ]
+if [ -z "$exists" ]
 then
     cat << EOF >> ${dir}/app/listeners.php
 require_once(__DIR__ . '/../educlever-listeners.php');
