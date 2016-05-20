@@ -139,6 +139,7 @@ class StatementStoreController {
       ], $options)
     );
 
+    error_log(__METHOD__.' Statements.store');
     // http://www.craighooghiem.com/application-hooks-with-laravel-events/
     \Event::fire('Statements.store', array(&$statements));
 
