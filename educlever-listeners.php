@@ -134,6 +134,7 @@ function educlever_config(array &$qConfig, $key, $defaultValue = null)
             $immediate = false;
             $ticket = null;
 
+            error_log(__METHOD__.' basic_publish');
             $channel->basic_publish(
                 new AMQPMessage($encodedStatements),
                 $exchange,
