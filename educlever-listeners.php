@@ -32,6 +32,17 @@ switch ($env) {
         ];
         break;
 
+    case 'preprod':
+        $qConfig = [
+            'host' => '192.168.11.1',
+            'port' => 5672,
+            'user' => 'guest',
+            'password' => 'guest',
+            //
+            'queue_name' => 'lrs',
+        ];
+        break;
+
     default:
         throw new \Exception("No config for env \"{$env}\"");
 }
