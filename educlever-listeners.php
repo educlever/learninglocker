@@ -34,7 +34,7 @@ switch ($env) {
 
     case 'preprod':
         $qConfig = [
-            'host' => '192.168.11.1',
+            'host' => '192.168.0.10', // loadbalancer (shadowed)
             'port' => 5672,
             'user' => 'guest',
             'password' => 'guest',
