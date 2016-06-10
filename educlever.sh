@@ -28,7 +28,8 @@ EOF
         exists=$(grep "Logo Educlever" ${view})
         if [ -z "$exists" ]
         then
-            sed -i -E 's#(<div class="logo">)#\1<img src="http://demo.educlever.io/img.png" alt="Logo Educlever">#' ${view}
+            cp $dir/educlever-logo.png $dir/public/
+            sed -i -E 's#(<div class="logo">)#\1<img src="/educlever-logo.png" alt="Logo Educlever">#' ${view}
         fi
 
 ;;
