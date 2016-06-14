@@ -22,7 +22,16 @@ require_once(__DIR__ . '/../educlever-listeners.php');
 EOF
         fi
 
-        chmod a+rw -R ${dir}/app/storage/
+        mkdir ${dir}/app/storage/
+        mkdir ${dir}/app/storage/cache/
+        mkdir ${dir}/app/storage/clockwork/
+        mkdir ${dir}/app/storage/debugbar/
+        mkdir ${dir}/app/storage/logs/
+        mkdir ${dir}/app/storage/meta/
+        mkdir ${dir}/app/storage/sessions/
+        mkdir ${dir}/app/storage/views/
+
+        chmod a+rw ${dir}/app/storage/*
 
         view=app/views/layouts/loggedout.blade.php
         exists=$(grep "Logo Educlever" ${view})
