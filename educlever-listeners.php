@@ -36,8 +36,8 @@ switch ($env) {
         $qConfig = [
             'host' => '192.168.0.10', // loadbalancer (shadowed)
             'port' => 5672,
-            'user' => 'guest',
-            'password' => 'guest',
+            'user' => 'cluster',
+            'password' => 'cluster06manager',
             //
             'queue_name' => 'lrs',
         ];
