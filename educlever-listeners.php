@@ -113,7 +113,7 @@ function educlever_config(array &$qConfig, $key, $defaultValue = null)
             // cf. https://www.rabbitmq.com/amqp-0-9-1-reference.html
             $queue = educlever_config($qConfig, 'queue_name');
             $passive = educlever_config($qConfig, 'queue_passive', false);
-            $durable = educlever_config($qConfig, 'queue_durable', true);
+            $durable = educlever_config($qConfig, 'queue_durable', false);
             $exclusive = educlever_config($qConfig, 'queue_exclusive', false);
             $auto_delete = educlever_config($qConfig, 'queue_auto_delete', false);
             $nowait = educlever_config($qConfig, 'queue_nowait', false);
