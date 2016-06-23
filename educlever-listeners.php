@@ -56,11 +56,11 @@ function educlever_config(array &$qConfig, $key, $defaultValue = null)
 }
 
 \Event::listen(
-    'Statements.store',
+    'Statements.store.before',
     function ($statements) use ($qConfig) {
         $encodedStatements = @json_encode($statements);
         if (JSON_ERROR_NONE !== json_last_error()) {
-            error_log("Statements.store listener, json_encode error : " . json_last_error_msg());
+            error_log("Statements.store.before listener, json_encode error : " . json_last_error_msg());
         } else {
 
             // connexion au serveur de Q
@@ -145,7 +145,7 @@ function educlever_config(array &$qConfig, $key, $defaultValue = null)
             $immediate = false;
             $ticket = null;
 
-            error_log(__METHOD__.' basic_publish');
+            error_log('Statements.store.before listener, basic_publish');
             $channel->basic_publish(
                 new AMQPMessage($encodedStatements),
                 $exchange,

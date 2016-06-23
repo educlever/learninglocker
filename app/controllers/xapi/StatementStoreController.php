@@ -130,7 +130,11 @@ class StatementStoreController {
       $statements = $modifier($statements);
     }
 
-    // Saves $statements with attachments.
+    error_log(__METHOD__.' Statements.store.before');
+    // http://www.craighooghiem.com/application-hooks-with-laravel-events/
+    \Event::fire('Statements.store.before', array(&$statements));
+
+      // Saves $statements with attachments.
     $rc = $this->statements->store(
       $statements,
       is_array($parts['attachments']) ? $parts['attachments'] : [],
