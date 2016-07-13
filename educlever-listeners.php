@@ -56,7 +56,8 @@ function educlever_config(array &$qConfig, $key, $defaultValue = null)
 }
 
 \Event::listen(
-    'Statements.store.before',
+//    'Statements.store.before',
+    'Statements.store',
     function ($statements) use ($qConfig) {
         $encodedStatements = @json_encode($statements);
         if (JSON_ERROR_NONE !== json_last_error()) {
